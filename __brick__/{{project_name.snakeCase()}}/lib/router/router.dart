@@ -1,5 +1,5 @@
 import 'package:go_router/go_router.dart';
-import 'package:unique_string/home/view/home_page.dart';
+import 'package:{{project_name.snakeCase()}}/home/view/home_page.dart';
 
 final router = GoRouter(
   routes: [

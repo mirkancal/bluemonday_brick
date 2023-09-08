@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:unique_string/app/utils/extensions/either_extensions.dart';
-import 'package:unique_string/auth/bloc/auth_bloc.dart';
-import 'package:unique_string/auth/repository/auth_repository.dart';
+import 'package:{{project_name.snakeCase()}}/app/utils/extensions/either_extensions.dart';
+import 'package:{{project_name.snakeCase()}}/auth/bloc/auth_bloc.dart';
+import 'package:{{project_name.snakeCase()}}/auth/repository/auth_repository.dart';
 
 part 'login_bloc.freezed.dart';
 part 'login_event.dart';

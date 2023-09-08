@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:unique_string/router/router.dart';
-import 'package:unique_string/theme/theme.dart';
+import 'package:{{project_name.snakeCase()}}/router/router.dart';
+import 'package:{{project_name.snakeCase()}}/theme/theme.dart';
 
 class App extends StatelessWidget {
   const App({super.key});

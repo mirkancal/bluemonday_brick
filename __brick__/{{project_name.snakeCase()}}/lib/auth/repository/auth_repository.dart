@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import 'package:unique_string/auth/models/auth_failure.dart';
+import 'package:{{project_name.snakeCase()}}/auth/models/auth_failure.dart';
 
 abstract class AuthRepository {
   Future<Either<AuthFailure, User>> signInAnonymously();

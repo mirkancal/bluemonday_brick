@@ -1,5 +1,5 @@
-name: unique_string
-description: unique_string 
+name: {{project_name.snakeCase()}}
+description: {{project_name.snakeCase()}} 
 version: 0.1.0+1
 publish_to: none
 

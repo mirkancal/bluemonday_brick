@@ -5,8 +5,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 
-import 'package:unique_string/auth/models/auth_failure.dart';
-import 'package:unique_string/auth/repository/auth_repository.dart';
+import 'package:{{project_name.snakeCase()}}/auth/models/auth_failure.dart';
+import 'package:{{project_name.snakeCase()}}/auth/repository/auth_repository.dart';
 
 @LazySingleton(as: AuthRepository)
 class AuthRepositoryImpl implements AuthRepository {

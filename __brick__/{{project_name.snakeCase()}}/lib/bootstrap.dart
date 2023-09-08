@@ -4,7 +4,7 @@ import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/widgets.dart';
-import 'package:unique_string/injectable.dart';
+import 'package:{{project_name.snakeCase()}}/injectable.dart';
 
 class AppBlocObserver extends BlocObserver {
   const AppBlocObserver();

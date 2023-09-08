@@ -7,8 +7,8 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:unique_string/auth/repository/auth_repository.dart';
-import 'package:unique_string/injectable.dart';
+import 'package:{{project_name.snakeCase()}}/auth/repository/auth_repository.dart';
+import 'package:{{project_name.snakeCase()}}/injectable.dart';
 
 part 'auth_bloc.freezed.dart';
 part 'auth_event.dart';
