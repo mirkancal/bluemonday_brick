@@ -7,13 +7,12 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:unique_string/auth/repository/auth_repository.dart';
+import 'package:unique_string/injectable.dart';
 
-import '../../injectable.dart';
-import '../repository/auth_repository.dart';
-
+part 'auth_bloc.freezed.dart';
 part 'auth_event.dart';
 part 'auth_state.dart';
-part 'auth_bloc.freezed.dart';
 
 @singleton
 class AuthBloc extends Bloc<AuthEvent, AuthState> {

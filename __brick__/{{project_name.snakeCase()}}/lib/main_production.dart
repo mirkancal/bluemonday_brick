@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'app/app.dart';
-import 'bootstrap.dart';
+import 'package:unique_string/app/app.dart';
+import 'package:unique_string/bootstrap.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
