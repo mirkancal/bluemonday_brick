@@ -1,5 +1,5 @@
 name: {{project_name.snakeCase()}}
-description: {{project_name.snakeCase()}} 
+description: {{project_name.snakeCase()}}
 version: 0.1.0+1
 publish_to: none
 
@@ -47,7 +47,8 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   generate: true
-  # assets:
+  assets:
+    - assets/ui/
 
 scripts:
   # run is a default script. To use it, simply type

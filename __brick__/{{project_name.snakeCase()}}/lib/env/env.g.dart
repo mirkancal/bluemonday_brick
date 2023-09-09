@@ -8,10 +8,20 @@ part of 'env.dart';
 
 class _Env {
   static const List<int> _enviedkeyapiKey = [
-    // will be generated
+    383500709,
+    3505534628,
+    1497204402,
+    4176685294,
+    4026816442,
+    247810153
   ];
   static const List<int> _envieddataapiKey = [
-    // will be generated
+    383500758,
+    3505534671,
+    1497204383,
+    4176685199,
+    4026816472,
+    247810058
   ];
   static final String apiKey = String.fromCharCodes(
     List.generate(_envieddataapiKey.length, (i) => i, growable: false)
@@ -19,10 +29,24 @@ class _Env {
         .toList(growable: false),
   );
   static const List<int> _enviedkeyrevenueCatPlayStore = [
-    // will be generated
+    3878566811,
+    960849284,
+    2941337263,
+    3090835573,
+    2737666842,
+    1398476596,
+    1497552364,
+    3562584112
   ];
   static const List<int> _envieddatarevenueCatPlayStore = [
-    // will be generated
+    3878566908,
+    960849387,
+    2941337280,
+    3090835474,
+    2737666885,
+    1398476629,
+    1497552270,
+    3562584147
   ];
   static final String revenueCatPlayStore = String.fromCharCodes(
     List.generate(_envieddatarevenueCatPlayStore.length, (i) => i,
@@ -33,10 +57,24 @@ class _Env {
         .toList(growable: false),
   );
   static const List<int> _enviedkeyrevenueCatAppStore = [
-    // will be generated
+    2406982164,
+    1894990268,
+    3670591496,
+    3487171440,
+    560421668,
+    1900300048,
+    220042434,
+    3185990647
   ];
   static const List<int> _envieddatarevenueCatAppStore = [
-    // will be generated
+    2406982261,
+    1894990284,
+    3670591608,
+    3487171356,
+    560421755,
+    1900300145,
+    220042400,
+    3185990548
   ];
   static final String revenueCatAppStore = String.fromCharCodes(
     List.generate(_envieddatarevenueCatAppStore.length, (i) => i,

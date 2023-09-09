@@ -13,7 +13,7 @@ part 'login_state.dart';
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc(this._repository, this._authBloc) : super(const _Initial()) {
     on<_GuestLogin>(_handleGuestLogin);
-    on<_LoggedOut>(_handleLoggedOut);
+    on<_LogOut>(_handleLogOut);
   }
 
   Future<void> _handleGuestLogin(
@@ -36,10 +36,12 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     }
   }
 
-  Future<void> _handleLoggedOut(
-    _LoggedOut event,
+  Future<void> _handleLogOut(
+    _LogOut event,
     Emitter<LoginState> emit,
-  ) async {}
+  ) async {
+    _authBloc.add(const AuthEvent.logOut());
+  }
 
   final AuthRepository _repository;
   final AuthBloc _authBloc;

@@ -18,38 +18,38 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$LoginEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() loggedOut,
+    required TResult Function() logOut,
     required TResult Function() guestLogin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loggedOut,
+    TResult? Function()? logOut,
     TResult? Function()? guestLogin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loggedOut,
+    TResult Function()? logOut,
     TResult Function()? guestLogin,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_LogOut value) logOut,
     required TResult Function(_GuestLogin value) guestLogin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_LoggedOut value)? loggedOut,
+    TResult? Function(_LogOut value)? logOut,
     TResult? Function(_GuestLogin value)? guestLogin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_LogOut value)? logOut,
     TResult Function(_GuestLogin value)? guestLogin,
     required TResult orElse(),
   }) =>
@@ -75,35 +75,33 @@ class _$LoginEventCopyWithImpl<$Res, $Val extends LoginEvent>
 }
 
 /// @nodoc
-abstract class _$$_LoggedOutCopyWith<$Res> {
-  factory _$$_LoggedOutCopyWith(
-          _$_LoggedOut value, $Res Function(_$_LoggedOut) then) =
-      __$$_LoggedOutCopyWithImpl<$Res>;
+abstract class _$$_LogOutCopyWith<$Res> {
+  factory _$$_LogOutCopyWith(_$_LogOut value, $Res Function(_$_LogOut) then) =
+      __$$_LogOutCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_LoggedOutCopyWithImpl<$Res>
-    extends _$LoginEventCopyWithImpl<$Res, _$_LoggedOut>
-    implements _$$_LoggedOutCopyWith<$Res> {
-  __$$_LoggedOutCopyWithImpl(
-      _$_LoggedOut _value, $Res Function(_$_LoggedOut) _then)
+class __$$_LogOutCopyWithImpl<$Res>
+    extends _$LoginEventCopyWithImpl<$Res, _$_LogOut>
+    implements _$$_LogOutCopyWith<$Res> {
+  __$$_LogOutCopyWithImpl(_$_LogOut _value, $Res Function(_$_LogOut) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_LoggedOut implements _LoggedOut {
-  const _$_LoggedOut();
+class _$_LogOut implements _LogOut {
+  const _$_LogOut();
 
   @override
   String toString() {
-    return 'LoginEvent.loggedOut()';
+    return 'LoginEvent.logOut()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_LoggedOut);
+        (other.runtimeType == runtimeType && other is _$_LogOut);
   }
 
   @override
@@ -112,30 +110,30 @@ class _$_LoggedOut implements _LoggedOut {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() loggedOut,
+    required TResult Function() logOut,
     required TResult Function() guestLogin,
   }) {
-    return loggedOut();
+    return logOut();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loggedOut,
+    TResult? Function()? logOut,
     TResult? Function()? guestLogin,
   }) {
-    return loggedOut?.call();
+    return logOut?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loggedOut,
+    TResult Function()? logOut,
     TResult Function()? guestLogin,
     required TResult orElse(),
   }) {
-    if (loggedOut != null) {
-      return loggedOut();
+    if (logOut != null) {
+      return logOut();
     }
     return orElse();
   }
@@ -143,37 +141,37 @@ class _$_LoggedOut implements _LoggedOut {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_LogOut value) logOut,
     required TResult Function(_GuestLogin value) guestLogin,
   }) {
-    return loggedOut(this);
+    return logOut(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_LoggedOut value)? loggedOut,
+    TResult? Function(_LogOut value)? logOut,
     TResult? Function(_GuestLogin value)? guestLogin,
   }) {
-    return loggedOut?.call(this);
+    return logOut?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_LogOut value)? logOut,
     TResult Function(_GuestLogin value)? guestLogin,
     required TResult orElse(),
   }) {
-    if (loggedOut != null) {
-      return loggedOut(this);
+    if (logOut != null) {
+      return logOut(this);
     }
     return orElse();
   }
 }
 
-abstract class _LoggedOut implements LoginEvent {
-  const factory _LoggedOut() = _$_LoggedOut;
+abstract class _LogOut implements LoginEvent {
+  const factory _LogOut() = _$_LogOut;
 }
 
 /// @nodoc
@@ -214,7 +212,7 @@ class _$_GuestLogin implements _GuestLogin {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() loggedOut,
+    required TResult Function() logOut,
     required TResult Function() guestLogin,
   }) {
     return guestLogin();
@@ -223,7 +221,7 @@ class _$_GuestLogin implements _GuestLogin {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loggedOut,
+    TResult? Function()? logOut,
     TResult? Function()? guestLogin,
   }) {
     return guestLogin?.call();
@@ -232,7 +230,7 @@ class _$_GuestLogin implements _GuestLogin {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loggedOut,
+    TResult Function()? logOut,
     TResult Function()? guestLogin,
     required TResult orElse(),
   }) {
@@ -245,7 +243,7 @@ class _$_GuestLogin implements _GuestLogin {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_LogOut value) logOut,
     required TResult Function(_GuestLogin value) guestLogin,
   }) {
     return guestLogin(this);
@@ -254,7 +252,7 @@ class _$_GuestLogin implements _GuestLogin {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_LoggedOut value)? loggedOut,
+    TResult? Function(_LogOut value)? logOut,
     TResult? Function(_GuestLogin value)? guestLogin,
   }) {
     return guestLogin?.call(this);
@@ -263,7 +261,7 @@ class _$_GuestLogin implements _GuestLogin {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_LogOut value)? logOut,
     TResult Function(_GuestLogin value)? guestLogin,
     required TResult orElse(),
   }) {
