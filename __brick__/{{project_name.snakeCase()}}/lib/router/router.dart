@@ -1,7 +1,9 @@
 import 'dart:async';
 
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:injectable/injectable.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:{{project_name.snakeCase()}}/auth/bloc/auth_bloc.dart';
 import 'package:{{project_name.snakeCase()}}/home/view/home_page.dart';
@@ -59,7 +61,42 @@ final router = GoRouter(
       return atOnboarding ? HomePage.routeName.toRoute : null;
     }
   },
+  observers: [
+    getIt<AnalyticsObserver>(),
+  ],
 );
+
+@lazySingleton
+class AnalyticsObserver extends NavigatorObserver {
+  AnalyticsObserver(this.analytics);
+  final FirebaseAnalytics analytics;
+  @override
+  void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) =>
+      analytics.setCurrentScreen(screenName: route.str);
+
+  @override
+  void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) =>
+      analytics.setCurrentScreen(screenName: route.str);
+
+  @override
+  void didRemove(Route<dynamic> route, Route<dynamic>? previousRoute) =>
+      analytics.setCurrentScreen(screenName: route.str);
+
+  @override
+  void didReplace({Route<dynamic>? newRoute, Route<dynamic>? oldRoute}) =>
+      analytics.setCurrentScreen(screenName: newRoute?.str);
+
+  @override
+  void didStartUserGesture(
+    Route<dynamic> route,
+    Route<dynamic>? previousRoute,
+  ) =>
+      analytics.setCurrentScreen(screenName: route.str);
+}
+
+extension on Route<dynamic> {
+  String get str => 'route(${settings.name}: ${settings.arguments})';
+}
 
 class GoRouterRefreshStream extends ChangeNotifier {
   GoRouterRefreshStream(Stream<dynamic> stream) {

@@ -1,4 +1,3 @@
-# make this script also with mustache syntax
 
 flutterfire configure \
   --project={{project_name.snakeCase()}} \

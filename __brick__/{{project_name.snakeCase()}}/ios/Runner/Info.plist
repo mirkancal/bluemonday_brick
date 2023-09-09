@@ -52,5 +52,7 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>{{project_name.titleCase()}} uses your data to serve personalized content.</string>
 </dict>
 </plist>
