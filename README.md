@@ -5,6 +5,8 @@
 
 Having built Flutter apps for a significant time, I've realized the initial setup for new projects can be quite repetitive. Remembering the time when I hadn't published any apps under my name until 2023, and now having a few under my belt, I felt the need for a streamlined process. This starter kit is a culmination of those experiences, aiming to simplify the setup for common features and services.
 
+My AppStore Account: https://apps.apple.com/developer/id1644583007
+
 ## 🚀 Features
 
 ### 1. **Firebase Integration**
@@ -38,6 +40,11 @@ Having built Flutter apps for a significant time, I've realized the initial setu
 ## 📈 Future Plans
 
 I'm on a journey to enhance this starter kit continuously. If you've walked a path similar to mine and have suggestions or encounter any issues, please feel free to contribute or raise them in the issues section.
+
+Template depends on some services like Firebase and RevenueCat heavily.
+One of the future plans are making those optional and ask during `mason make`. Based on user choices, some packages and services won't be added.
+
+I don't think I'll add those toggles anytime soon because as an indie developer, Firebase services and RevenueCat does the job for me.
 
 
 ## 🛠️ How to use
@@ -82,6 +89,21 @@ To use the brick, you can use the mason make command followed by the name of the
 ```bash
 mason make bluemonday_brick
 ```
+
+## After installation
+
+Since the project is depending on other services heavily, you need to set them up.
+
+### Firebase
+
+Project comes with Firebase services, just as Auth, Notifications, Remote Config, Analytics and Crashlytics. Setting up the Firebase is necessary. Cloud Firestore package is added both on `pubspec.yaml` and `Podfile` but there's no code related to the Firestore initially. In case of removing Firestore, remove from both places. 
+
+I put a script called `setup_firebase.sh` which is using flutterfire to set up firebase. Also app comes with 3 different flavors, production, development and staging. You can edit the script and run 2 more times to add Firebase to other flavors.
+
+### RevenueCat
+
+Template has PurchaseBloc and PurchaseService which is using RevenueCat.
+To use properly, you need to set up proucts, add them on RevenueCat, add your RevenueCat iOS and Android keys on `.env` file. After that running that, you need to run build_runner. Template also has few scripts defined on `pubspec.yaml`, if you have `rps` package, you can run them like: `rps clean ios`
 
 ## Tree 🌲
 
