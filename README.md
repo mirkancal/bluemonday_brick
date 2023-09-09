@@ -96,14 +96,14 @@ Since the project is depending on other services heavily, you need to set them u
 
 ### Firebase
 
-Project comes with Firebase services, just as Auth, Notifications, Remote Config, Analytics and Crashlytics. Setting up the Firebase is necessary. Cloud Firestore package is added both on `pubspec.yaml` and `Podfile` but there's no code related to the Firestore initially. In case of removing Firestore, remove from both places. 
+The project includes Firebase services such as Auth, Notifications, Remote Config, Analytics, and Crashlytics. Setting up Firebase is essential. The Cloud Firestore package is added to both `pubspec.yaml` and `Podfile`. However, there's no initial code related to Firestore. If you decide to remove Firestore, ensure you remove it from both files.
 
-I put a script called `setup_firebase.sh` which is using flutterfire to set up firebase. Also app comes with 3 different flavors, production, development and staging. You can edit the script and run 2 more times to add Firebase to other flavors.
+I've provided a script named `setup_firebase.sh` that utilizes flutterfire to set up Firebase. Additionally, the app has three different flavors: production, development, and staging. If you need to add Firebase to other flavors, you can modify the script and execute it two more times.
 
 ### RevenueCat
 
-Template has PurchaseBloc and PurchaseService which is using RevenueCat.
-To use properly, you need to set up proucts, add them on RevenueCat, add your RevenueCat iOS and Android keys on `.env` file. After that running that, you need to run build_runner. Template also has few scripts defined on `pubspec.yaml`, if you have `rps` package, you can run them like: `rps clean ios`
+The template contains a PurchaseBloc and PurchaseService that utilize RevenueCat. For proper usage, you must set up products and register them on RevenueCat. Then, add your RevenueCat iOS and Android keys to the `.env` file. After completing these steps, execute the build_runner. The template also defines several scripts in `pubspec.yaml`. If you have the `rps` package installed, you can run commands like: `rps clean ios`.
+
 
 ## Tree 🌲
 
