@@ -1,8 +1,8 @@
-import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:{{project_name.snakeCase()}}/analytics/service/analytics_service.dart';
 import 'package:{{project_name.snakeCase()}}/injectable.dart';
 import 'package:{{project_name.snakeCase()}}/login/bloc/login_bloc.dart';
+import 'package:{{project_name.snakeCase()}}/notification/service/notification_service.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,6 +17,8 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     getIt<AnalyticsService>().askATT();
+    getIt<NotificationService>().requestPermission();
+
     super.initState();
   }
 

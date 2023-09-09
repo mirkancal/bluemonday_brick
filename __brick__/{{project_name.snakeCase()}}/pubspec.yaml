@@ -15,6 +15,7 @@ dependencies:
   firebase_auth: ^4.9.0
   firebase_core: ^2.15.1
   firebase_crashlytics: ^3.3.5
+  firebase_messaging: ^14.6.7
   firebase_remote_config: ^4.2.5
   flex_color_scheme: ^7.2.0
   flutter:
@@ -59,6 +60,7 @@ scripts:
   clean:
     ios: cd ios && rm -rf Podfile.lock Pods/ && pod install --repo-update && cd ../
     runner: dart run build_runner clean
+    android: cd android && ./gradlew clean && cd ../
   firebase:
     run-emulators: "firebase emulators:start --import firebase_emulators_export"
     save: "firebase emulators:export firebase_emulator_exports"

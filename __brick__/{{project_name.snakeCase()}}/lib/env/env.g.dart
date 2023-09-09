@@ -8,20 +8,20 @@ part of 'env.dart';
 
 class _Env {
   static const List<int> _enviedkeyapiKey = [
-    1489039062,
-    1305855439,
-    3772063909,
-    3929749917,
-    2420629808,
-    2359839781
+    1155369765,
+    681163160,
+    4015825025,
+    1268562893,
+    1401347645,
+    499110566
   ];
   static const List<int> _envieddataapiKey = [
-    1489039013,
-    1305855396,
-    3772063880,
-    3929750012,
-    2420629842,
-    2359839814
+    1155369814,
+    681163251,
+    4015825068,
+    1268562860,
+    1401347679,
+    499110597
   ];
   static final String apiKey = String.fromCharCodes(
     List.generate(_envieddataapiKey.length, (i) => i, growable: false)
@@ -29,24 +29,24 @@ class _Env {
         .toList(growable: false),
   );
   static const List<int> _enviedkeyrevenueCatPlayStore = [
-    681539,
-    399018678,
-    715852819,
-    1011372737,
-    1509867276,
-    119095705,
-    112996115,
-    2079022507
+    1532312922,
+    806963193,
+    3590879319,
+    3505605502,
+    1760433453,
+    2895934496,
+    3525229266,
+    444278547
   ];
   static const List<int> _envieddatarevenueCatPlayStore = [
-    681508,
-    399018713,
-    715852924,
-    1011372710,
-    1509867347,
-    119095800,
-    112996209,
-    2079022536
+    1532312893,
+    806963094,
+    3590879288,
+    3505605401,
+    1760433522,
+    2895934529,
+    3525229232,
+    444278640
   ];
   static final String revenueCatPlayStore = String.fromCharCodes(
     List.generate(_envieddatarevenueCatPlayStore.length, (i) => i,
@@ -57,24 +57,24 @@ class _Env {
         .toList(growable: false),
   );
   static const List<int> _enviedkeyrevenueCatAppStore = [
-    3004641395,
-    1808180065,
-    2174806121,
-    1407839925,
-    3421803984,
-    2833573618,
-    4029853191,
-    1567714410
+    1273207546,
+    2342653269,
+    1399482718,
+    484861040,
+    1144433405,
+    4007295301,
+    1848169250,
+    133696784
   ];
   static const List<int> _envieddatarevenueCatAppStore = [
-    3004641298,
-    1808179985,
-    2174806041,
-    1407839961,
-    3421803919,
-    2833573523,
-    4029853285,
-    1567714313
+    1273207451,
+    2342653221,
+    1399482670,
+    484860956,
+    1144433314,
+    4007295268,
+    1848169280,
+    133696883
   ];
   static final String revenueCatAppStore = String.fromCharCodes(
     List.generate(_envieddatarevenueCatAppStore.length, (i) => i,
