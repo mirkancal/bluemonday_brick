@@ -1,7 +1,12 @@
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
+import 'package:{{project_name.snakeCase()}}/injectable.dart';
+import 'package:{{project_name.snakeCase()}}/login/bloc/login_bloc.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
+
+  static const routeName = 'home';
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +38,9 @@ class HomePage extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 backgroundColor: theme.colorScheme.secondaryContainer,
               ),
-              onPressed: () {},
+              onPressed: () {
+                getIt<LoginBloc>().add(const LoginEvent.logOut());
+              },
               child: const Text(
                 'Log Out',
               ),
