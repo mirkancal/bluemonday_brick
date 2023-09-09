@@ -7,6 +7,7 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:{{project_name.snakeCase()}}/analytics/service/analytics_service.dart';
 import 'package:{{project_name.snakeCase()}}/auth/repository/auth_repository.dart';
 import 'package:{{project_name.snakeCase()}}/injectable.dart';
 
@@ -17,11 +18,12 @@ part 'auth_state.dart';
 @singleton
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc(this._repository, this._auth) : super(const _Initial()) {
+    /// I had a weird bug long time on Android Emulators,
+    /// where [authStateChanges] yields thousands of events in second.
+    /// That's why I'm using it only on iOS
     if (!Platform.isIOS) {
       _repository.isUserSignedIn().then((value) async {
         if (value != null) {
-          // add(const _LogOut());
-
           add(_Authenticate(user: value));
         } else {
           add(const _LogOut());
@@ -30,9 +32,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     }
     if (Platform.isIOS) {
       userSubscription = _auth.authStateChanges().listen((value) async {
-        if (kDebugMode) {
-          print('AUTH STATE CHANGED: $value');
-        }
         if (value != null) {
           add(_Authenticate(user: value));
         } else {
@@ -44,13 +43,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<_Authenticate>((event, emit) async {
       try {
         if (!kIsWeb) {
+          unawaited(
+            getIt<AnalyticsService>().login(
+              uid: event.user.uid,
+              email: event.user.email,
+            ),
+          );
           //@TODO
-          // unawaited(
-          //   getIt<IAnalyticsService>().login(
-          //     uid: event.user.uid,
-          //     email: event.user.email,
-          //   ),
-          // );
           // await getIt<IPurchasesService>().login(uid: event.user.uid);
         }
         _login(event.user.uid);

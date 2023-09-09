@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:{{project_name.snakeCase()}}/injectable.dart';
 
@@ -24,7 +25,7 @@ class AppBlocObserver extends BlocObserver {
 
 Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   Bloc.observer = const AppBlocObserver();
-  await configureDependencies();
+  configureDependencies();
 
   FlutterError.onError = (details) {
     getIt<FirebaseCrashlytics>().recordFlutterError(details);
