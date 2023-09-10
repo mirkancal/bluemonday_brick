@@ -3,6 +3,7 @@ import 'package:{{project_name.snakeCase()}}/analytics/service/analytics_service
 import 'package:{{project_name.snakeCase()}}/injectable.dart';
 import 'package:{{project_name.snakeCase()}}/login/bloc/login_bloc.dart';
 import 'package:{{project_name.snakeCase()}}/notification/service/notification_service.dart';
+import 'package:{{project_name.snakeCase()}}/version/service/version_service.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -18,6 +19,9 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     getIt<AnalyticsService>().askATT();
     getIt<NotificationService>().requestPermission();
+    getIt<VersionService>().initialize().then(
+          (value) => getIt<VersionService>().showVersionDialog(context),
+        );
 
     super.initState();
   }
@@ -45,7 +49,9 @@ class _HomePageState extends State<HomePage> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: theme.colorScheme.secondary,
               ),
-              onPressed: () {},
+              onPressed: () {
+                getIt<VersionService>().showVersionDialog(context);
+              },
               child: const Text('Show force update'),
             ),
             ElevatedButton(

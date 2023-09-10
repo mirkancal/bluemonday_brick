@@ -17,21 +17,23 @@ import 'package:firebase_remote_config/firebase_remote_config.dart' as _i7;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import 'analytics/service/analytics_service.dart' as _i10;
-import 'auth/bloc/auth_bloc.dart' as _i13;
-import 'auth/repository/auth_repository.dart' as _i11;
-import 'auth/repository/auth_repository_impl.dart' as _i12;
-import 'firebase/firebase_injectable_module.dart' as _i15;
-import 'login/bloc/login_bloc.dart' as _i14;
+import 'analytics/service/analytics_service.dart' as _i12;
+import 'auth/bloc/auth_bloc.dart' as _i15;
+import 'auth/repository/auth_repository.dart' as _i13;
+import 'auth/repository/auth_repository_impl.dart' as _i14;
+import 'firebase/firebase_injectable_module.dart' as _i17;
+import 'login/bloc/login_bloc.dart' as _i16;
 import 'notification/service/notification_service.dart' as _i8;
-import 'router/router.dart' as _i9;
+import 'remote_config/service/remote_config_service.dart' as _i9;
+import 'router/router.dart' as _i11;
+import 'version/service/version_service.dart' as _i10;
 
 // initializes the registration of main-scope dependencies inside of GetIt
-_i1.GetIt init(
+Future<_i1.GetIt> init(
   _i1.GetIt getIt, {
   String? environment,
   _i2.EnvironmentFilter? environmentFilter,
-}) {
+}) async {
   final gh = _i2.GetItHelper(
     getIt,
     environment,
@@ -49,21 +51,27 @@ _i1.GetIt init(
       () => firebaseInjectableModule.remoteConfig);
   gh.singleton<_i8.NotificationService>(
       _i8.NotificationServiceImpl(gh<_i6.FirebaseMessaging>()));
-  gh.lazySingleton<_i9.AnalyticsObserver>(
-      () => _i9.AnalyticsObserver(gh<_i3.FirebaseAnalytics>()));
-  gh.lazySingleton<_i10.AnalyticsService>(
-      () => _i10.AnalyticsServiceImpl(gh<_i3.FirebaseAnalytics>()));
-  gh.lazySingleton<_i11.AuthRepository>(
-      () => _i12.AuthRepositoryImpl(gh<_i4.FirebaseAuth>()));
-  gh.singleton<_i13.AuthBloc>(_i13.AuthBloc(
-    gh<_i11.AuthRepository>(),
+  await gh.singletonAsync<_i9.RemoteConfigService>(
+    () => _i9.RemoteConfigServiceImpl.create(),
+    preResolve: true,
+  );
+  gh.singleton<_i10.VersionService>(
+      _i10.VersionServiceImpl(gh<_i9.RemoteConfigService>()));
+  gh.lazySingleton<_i11.AnalyticsObserver>(
+      () => _i11.AnalyticsObserver(gh<_i3.FirebaseAnalytics>()));
+  gh.lazySingleton<_i12.AnalyticsService>(
+      () => _i12.AnalyticsServiceImpl(gh<_i3.FirebaseAnalytics>()));
+  gh.lazySingleton<_i13.AuthRepository>(
+      () => _i14.AuthRepositoryImpl(gh<_i4.FirebaseAuth>()));
+  gh.singleton<_i15.AuthBloc>(_i15.AuthBloc(
+    gh<_i13.AuthRepository>(),
     gh<_i4.FirebaseAuth>(),
   ));
-  gh.singleton<_i14.LoginBloc>(_i14.LoginBloc(
-    gh<_i11.AuthRepository>(),
-    gh<_i13.AuthBloc>(),
+  gh.singleton<_i16.LoginBloc>(_i16.LoginBloc(
+    gh<_i13.AuthRepository>(),
+    gh<_i15.AuthBloc>(),
   ));
   return getIt;
 }
 
-class _$FirebaseInjectableModule extends _i15.FirebaseInjectableModule {}
+class _$FirebaseInjectableModule extends _i17.FirebaseInjectableModule {}

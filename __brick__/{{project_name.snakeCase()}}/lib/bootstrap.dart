@@ -25,7 +25,7 @@ class AppBlocObserver extends BlocObserver {
 
 Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   Bloc.observer = const AppBlocObserver();
-  configureDependencies();
+  await configureDependencies();
 
   FlutterError.onError = (details) {
     getIt<FirebaseCrashlytics>().recordFlutterError(details);

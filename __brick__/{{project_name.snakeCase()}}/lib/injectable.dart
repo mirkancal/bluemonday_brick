@@ -10,4 +10,4 @@ final getIt = GetIt.instance;
   preferRelativeImports: true, // default
   asExtension: false, // default
 )
-GetIt configureDependencies() => init(getIt);
+Future<GetIt> configureDependencies() => init(getIt);
