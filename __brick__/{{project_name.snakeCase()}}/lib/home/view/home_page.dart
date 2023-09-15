@@ -3,6 +3,8 @@ import 'package:{{project_name.snakeCase()}}/analytics/service/analytics_service
 import 'package:{{project_name.snakeCase()}}/injectable.dart';
 import 'package:{{project_name.snakeCase()}}/login/bloc/login_bloc.dart';
 import 'package:{{project_name.snakeCase()}}/notification/service/notification_service.dart';
+import 'package:{{project_name.snakeCase()}}/purchase/view/paywall_page.dart';
+import 'package:{{project_name.snakeCase()}}/router/router.dart';
 import 'package:{{project_name.snakeCase()}}/version/service/version_service.dart';
 
 class HomePage extends StatefulWidget {
@@ -35,7 +37,9 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                router.pushNamed(PaywallPage.routeName);
+              },
               child: const Text('Paywall'),
             ),
             ElevatedButton(

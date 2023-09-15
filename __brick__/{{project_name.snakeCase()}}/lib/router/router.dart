@@ -10,6 +10,7 @@ import 'package:{{project_name.snakeCase()}}/home/view/home_page.dart';
 import 'package:{{project_name.snakeCase()}}/injectable.dart';
 import 'package:{{project_name.snakeCase()}}/onboarding/view/onboarding_page.dart';
 import 'package:{{project_name.snakeCase()}}/onboarding/view/splash.dart';
+import 'package:{{project_name.snakeCase()}}/purchase/view/paywall_page.dart';
 
 final router = GoRouter(
   routes: [
@@ -27,6 +28,11 @@ final router = GoRouter(
       path: SplashPage.routeName.toRoute,
       name: SplashPage.routeName,
       builder: (context, state) => const SplashPage(),
+    ),
+    GoRoute(
+      path: PaywallPage.routeName.toRoute,
+      name: PaywallPage.routeName,
+      builder: (context, state) => const PaywallPage(),
     ),
   ],
   refreshListenable: GoRouterRefreshStream(
