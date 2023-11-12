@@ -5,12 +5,12 @@ import 'package:google_fonts/google_fonts.dart';
 final theme = FlexThemeData.dark(
   scaffoldBackground: 'FAFAFA'.toColor,
   onPrimary: 'FFFFFF'.toColor,
-  onSecondary: '212121'.toColor,
+  onSecondary: 'FFFFFF'.toColor,
   surface: '21244D'.toColor,
   onBackground: '212121'.toColor,
   colors: FlexSchemeColor.from(
     primary: '005CFF'.toColor,
-    secondary: 'FF5B39'.toColor,
+    secondary: '8D4BF6'.toColor,
     primaryContainer: '337DFF'.toColor,
     secondaryContainer: '5E6573'.toColor,
     tertiary: '8D4BF6'.toColor,
