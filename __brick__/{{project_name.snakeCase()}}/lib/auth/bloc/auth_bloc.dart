@@ -18,27 +18,10 @@ part 'auth_state.dart';
 @singleton
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc(this._repository, this._auth) : super(const _Initial()) {
-    /// I had a weird bug long time on Android Emulators,
-    /// where [authStateChanges] yields thousands of events in second.
-    /// That's why I'm using it only on iOS
-    if (!Platform.isIOS) {
-      _repository.isUserSignedIn().then((value) async {
-        if (value != null) {
-          add(_Authenticate(user: value));
-        } else {
-          add(const _LogOut());
-        }
-      });
-    }
-    if (Platform.isIOS) {
-      userSubscription = _auth.authStateChanges().listen((value) async {
-        if (value != null) {
-          add(_Authenticate(user: value));
-        } else {
-          add(const _LogOut());
-        }
-      });
-    }
+    userSubscription = _auth
+        .authStateChanges()
+        .distinct((p, n) => p?.uid == n?.uid)
+        .listen(_onAuthStateChanged);
 
     on<_Authenticate>((event, emit) async {
       try {
@@ -63,6 +46,17 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       emit(const Unauthenticated());
       // getIt<DatabaseService>().setSetting(Settings.onboarded.name, isOn: false);
     });
+  }
+
+  void _onAuthStateChanged(User? user) {
+    if (kDebugMode) {
+      print('AUTH STATE CHANGED: $user');
+    }
+    if (user != null) {
+      add(_Authenticate(user: user));
+    } else {
+      add(const _LogOut());
+    }
   }
 
   @override
