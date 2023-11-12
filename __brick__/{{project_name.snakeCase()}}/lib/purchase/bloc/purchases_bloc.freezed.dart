@@ -24,6 +24,7 @@ mixin _$PurchasesEvent {
     required TResult Function() confirmPurchaseSuccess,
     required TResult Function(int index) selectPackage,
     required TResult Function(bool trialEnabled) toggleTrial,
+    required TResult Function() premiumEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +35,7 @@ mixin _$PurchasesEvent {
     TResult? Function()? confirmPurchaseSuccess,
     TResult? Function(int index)? selectPackage,
     TResult? Function(bool trialEnabled)? toggleTrial,
+    TResult? Function()? premiumEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +46,7 @@ mixin _$PurchasesEvent {
     TResult Function()? confirmPurchaseSuccess,
     TResult Function(int index)? selectPackage,
     TResult Function(bool trialEnabled)? toggleTrial,
+    TResult Function()? premiumEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -56,6 +59,7 @@ mixin _$PurchasesEvent {
         confirmPurchaseSuccess,
     required TResult Function(_SelectPackage value) selectPackage,
     required TResult Function(_ToggleTrial value) toggleTrial,
+    required TResult Function(_PremiumEvent value) premiumEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,6 +70,7 @@ mixin _$PurchasesEvent {
     TResult? Function(_ConfirmPurchaseSuccess value)? confirmPurchaseSuccess,
     TResult? Function(_SelectPackage value)? selectPackage,
     TResult? Function(_ToggleTrial value)? toggleTrial,
+    TResult? Function(_PremiumEvent value)? premiumEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -76,6 +81,7 @@ mixin _$PurchasesEvent {
     TResult Function(_ConfirmPurchaseSuccess value)? confirmPurchaseSuccess,
     TResult Function(_SelectPackage value)? selectPackage,
     TResult Function(_ToggleTrial value)? toggleTrial,
+    TResult Function(_PremiumEvent value)? premiumEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -148,6 +154,7 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
     required TResult Function() confirmPurchaseSuccess,
     required TResult Function(int index) selectPackage,
     required TResult Function(bool trialEnabled) toggleTrial,
+    required TResult Function() premiumEvent,
   }) {
     return started();
   }
@@ -161,6 +168,7 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
     TResult? Function()? confirmPurchaseSuccess,
     TResult? Function(int index)? selectPackage,
     TResult? Function(bool trialEnabled)? toggleTrial,
+    TResult? Function()? premiumEvent,
   }) {
     return started?.call();
   }
@@ -174,6 +182,7 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
     TResult Function()? confirmPurchaseSuccess,
     TResult Function(int index)? selectPackage,
     TResult Function(bool trialEnabled)? toggleTrial,
+    TResult Function()? premiumEvent,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -192,6 +201,7 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
         confirmPurchaseSuccess,
     required TResult Function(_SelectPackage value) selectPackage,
     required TResult Function(_ToggleTrial value) toggleTrial,
+    required TResult Function(_PremiumEvent value) premiumEvent,
   }) {
     return started(this);
   }
@@ -205,6 +215,7 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
     TResult? Function(_ConfirmPurchaseSuccess value)? confirmPurchaseSuccess,
     TResult? Function(_SelectPackage value)? selectPackage,
     TResult? Function(_ToggleTrial value)? toggleTrial,
+    TResult? Function(_PremiumEvent value)? premiumEvent,
   }) {
     return started?.call(this);
   }
@@ -218,6 +229,7 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
     TResult Function(_ConfirmPurchaseSuccess value)? confirmPurchaseSuccess,
     TResult Function(_SelectPackage value)? selectPackage,
     TResult Function(_ToggleTrial value)? toggleTrial,
+    TResult Function(_PremiumEvent value)? premiumEvent,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -309,6 +321,7 @@ class _$_Purchase with DiagnosticableTreeMixin implements _Purchase {
     required TResult Function() confirmPurchaseSuccess,
     required TResult Function(int index) selectPackage,
     required TResult Function(bool trialEnabled) toggleTrial,
+    required TResult Function() premiumEvent,
   }) {
     return purchase(package);
   }
@@ -322,6 +335,7 @@ class _$_Purchase with DiagnosticableTreeMixin implements _Purchase {
     TResult? Function()? confirmPurchaseSuccess,
     TResult? Function(int index)? selectPackage,
     TResult? Function(bool trialEnabled)? toggleTrial,
+    TResult? Function()? premiumEvent,
   }) {
     return purchase?.call(package);
   }
@@ -335,6 +349,7 @@ class _$_Purchase with DiagnosticableTreeMixin implements _Purchase {
     TResult Function()? confirmPurchaseSuccess,
     TResult Function(int index)? selectPackage,
     TResult Function(bool trialEnabled)? toggleTrial,
+    TResult Function()? premiumEvent,
     required TResult orElse(),
   }) {
     if (purchase != null) {
@@ -353,6 +368,7 @@ class _$_Purchase with DiagnosticableTreeMixin implements _Purchase {
         confirmPurchaseSuccess,
     required TResult Function(_SelectPackage value) selectPackage,
     required TResult Function(_ToggleTrial value) toggleTrial,
+    required TResult Function(_PremiumEvent value) premiumEvent,
   }) {
     return purchase(this);
   }
@@ -366,6 +382,7 @@ class _$_Purchase with DiagnosticableTreeMixin implements _Purchase {
     TResult? Function(_ConfirmPurchaseSuccess value)? confirmPurchaseSuccess,
     TResult? Function(_SelectPackage value)? selectPackage,
     TResult? Function(_ToggleTrial value)? toggleTrial,
+    TResult? Function(_PremiumEvent value)? premiumEvent,
   }) {
     return purchase?.call(this);
   }
@@ -379,6 +396,7 @@ class _$_Purchase with DiagnosticableTreeMixin implements _Purchase {
     TResult Function(_ConfirmPurchaseSuccess value)? confirmPurchaseSuccess,
     TResult Function(_SelectPackage value)? selectPackage,
     TResult Function(_ToggleTrial value)? toggleTrial,
+    TResult Function(_PremiumEvent value)? premiumEvent,
     required TResult orElse(),
   }) {
     if (purchase != null) {
@@ -446,6 +464,7 @@ class _$_Restore with DiagnosticableTreeMixin implements _Restore {
     required TResult Function() confirmPurchaseSuccess,
     required TResult Function(int index) selectPackage,
     required TResult Function(bool trialEnabled) toggleTrial,
+    required TResult Function() premiumEvent,
   }) {
     return restore();
   }
@@ -459,6 +478,7 @@ class _$_Restore with DiagnosticableTreeMixin implements _Restore {
     TResult? Function()? confirmPurchaseSuccess,
     TResult? Function(int index)? selectPackage,
     TResult? Function(bool trialEnabled)? toggleTrial,
+    TResult? Function()? premiumEvent,
   }) {
     return restore?.call();
   }
@@ -472,6 +492,7 @@ class _$_Restore with DiagnosticableTreeMixin implements _Restore {
     TResult Function()? confirmPurchaseSuccess,
     TResult Function(int index)? selectPackage,
     TResult Function(bool trialEnabled)? toggleTrial,
+    TResult Function()? premiumEvent,
     required TResult orElse(),
   }) {
     if (restore != null) {
@@ -490,6 +511,7 @@ class _$_Restore with DiagnosticableTreeMixin implements _Restore {
         confirmPurchaseSuccess,
     required TResult Function(_SelectPackage value) selectPackage,
     required TResult Function(_ToggleTrial value) toggleTrial,
+    required TResult Function(_PremiumEvent value) premiumEvent,
   }) {
     return restore(this);
   }
@@ -503,6 +525,7 @@ class _$_Restore with DiagnosticableTreeMixin implements _Restore {
     TResult? Function(_ConfirmPurchaseSuccess value)? confirmPurchaseSuccess,
     TResult? Function(_SelectPackage value)? selectPackage,
     TResult? Function(_ToggleTrial value)? toggleTrial,
+    TResult? Function(_PremiumEvent value)? premiumEvent,
   }) {
     return restore?.call(this);
   }
@@ -516,6 +539,7 @@ class _$_Restore with DiagnosticableTreeMixin implements _Restore {
     TResult Function(_ConfirmPurchaseSuccess value)? confirmPurchaseSuccess,
     TResult Function(_SelectPackage value)? selectPackage,
     TResult Function(_ToggleTrial value)? toggleTrial,
+    TResult Function(_PremiumEvent value)? premiumEvent,
     required TResult orElse(),
   }) {
     if (restore != null) {
@@ -583,6 +607,7 @@ class _$_ConfirmPurchaseSuccess
     required TResult Function() confirmPurchaseSuccess,
     required TResult Function(int index) selectPackage,
     required TResult Function(bool trialEnabled) toggleTrial,
+    required TResult Function() premiumEvent,
   }) {
     return confirmPurchaseSuccess();
   }
@@ -596,6 +621,7 @@ class _$_ConfirmPurchaseSuccess
     TResult? Function()? confirmPurchaseSuccess,
     TResult? Function(int index)? selectPackage,
     TResult? Function(bool trialEnabled)? toggleTrial,
+    TResult? Function()? premiumEvent,
   }) {
     return confirmPurchaseSuccess?.call();
   }
@@ -609,6 +635,7 @@ class _$_ConfirmPurchaseSuccess
     TResult Function()? confirmPurchaseSuccess,
     TResult Function(int index)? selectPackage,
     TResult Function(bool trialEnabled)? toggleTrial,
+    TResult Function()? premiumEvent,
     required TResult orElse(),
   }) {
     if (confirmPurchaseSuccess != null) {
@@ -627,6 +654,7 @@ class _$_ConfirmPurchaseSuccess
         confirmPurchaseSuccess,
     required TResult Function(_SelectPackage value) selectPackage,
     required TResult Function(_ToggleTrial value) toggleTrial,
+    required TResult Function(_PremiumEvent value) premiumEvent,
   }) {
     return confirmPurchaseSuccess(this);
   }
@@ -640,6 +668,7 @@ class _$_ConfirmPurchaseSuccess
     TResult? Function(_ConfirmPurchaseSuccess value)? confirmPurchaseSuccess,
     TResult? Function(_SelectPackage value)? selectPackage,
     TResult? Function(_ToggleTrial value)? toggleTrial,
+    TResult? Function(_PremiumEvent value)? premiumEvent,
   }) {
     return confirmPurchaseSuccess?.call(this);
   }
@@ -653,6 +682,7 @@ class _$_ConfirmPurchaseSuccess
     TResult Function(_ConfirmPurchaseSuccess value)? confirmPurchaseSuccess,
     TResult Function(_SelectPackage value)? selectPackage,
     TResult Function(_ToggleTrial value)? toggleTrial,
+    TResult Function(_PremiumEvent value)? premiumEvent,
     required TResult orElse(),
   }) {
     if (confirmPurchaseSuccess != null) {
@@ -744,6 +774,7 @@ class _$_SelectPackage with DiagnosticableTreeMixin implements _SelectPackage {
     required TResult Function() confirmPurchaseSuccess,
     required TResult Function(int index) selectPackage,
     required TResult Function(bool trialEnabled) toggleTrial,
+    required TResult Function() premiumEvent,
   }) {
     return selectPackage(index);
   }
@@ -757,6 +788,7 @@ class _$_SelectPackage with DiagnosticableTreeMixin implements _SelectPackage {
     TResult? Function()? confirmPurchaseSuccess,
     TResult? Function(int index)? selectPackage,
     TResult? Function(bool trialEnabled)? toggleTrial,
+    TResult? Function()? premiumEvent,
   }) {
     return selectPackage?.call(index);
   }
@@ -770,6 +802,7 @@ class _$_SelectPackage with DiagnosticableTreeMixin implements _SelectPackage {
     TResult Function()? confirmPurchaseSuccess,
     TResult Function(int index)? selectPackage,
     TResult Function(bool trialEnabled)? toggleTrial,
+    TResult Function()? premiumEvent,
     required TResult orElse(),
   }) {
     if (selectPackage != null) {
@@ -788,6 +821,7 @@ class _$_SelectPackage with DiagnosticableTreeMixin implements _SelectPackage {
         confirmPurchaseSuccess,
     required TResult Function(_SelectPackage value) selectPackage,
     required TResult Function(_ToggleTrial value) toggleTrial,
+    required TResult Function(_PremiumEvent value) premiumEvent,
   }) {
     return selectPackage(this);
   }
@@ -801,6 +835,7 @@ class _$_SelectPackage with DiagnosticableTreeMixin implements _SelectPackage {
     TResult? Function(_ConfirmPurchaseSuccess value)? confirmPurchaseSuccess,
     TResult? Function(_SelectPackage value)? selectPackage,
     TResult? Function(_ToggleTrial value)? toggleTrial,
+    TResult? Function(_PremiumEvent value)? premiumEvent,
   }) {
     return selectPackage?.call(this);
   }
@@ -814,6 +849,7 @@ class _$_SelectPackage with DiagnosticableTreeMixin implements _SelectPackage {
     TResult Function(_ConfirmPurchaseSuccess value)? confirmPurchaseSuccess,
     TResult Function(_SelectPackage value)? selectPackage,
     TResult Function(_ToggleTrial value)? toggleTrial,
+    TResult Function(_PremiumEvent value)? premiumEvent,
     required TResult orElse(),
   }) {
     if (selectPackage != null) {
@@ -911,6 +947,7 @@ class _$_ToggleTrial with DiagnosticableTreeMixin implements _ToggleTrial {
     required TResult Function() confirmPurchaseSuccess,
     required TResult Function(int index) selectPackage,
     required TResult Function(bool trialEnabled) toggleTrial,
+    required TResult Function() premiumEvent,
   }) {
     return toggleTrial(trialEnabled);
   }
@@ -924,6 +961,7 @@ class _$_ToggleTrial with DiagnosticableTreeMixin implements _ToggleTrial {
     TResult? Function()? confirmPurchaseSuccess,
     TResult? Function(int index)? selectPackage,
     TResult? Function(bool trialEnabled)? toggleTrial,
+    TResult? Function()? premiumEvent,
   }) {
     return toggleTrial?.call(trialEnabled);
   }
@@ -937,6 +975,7 @@ class _$_ToggleTrial with DiagnosticableTreeMixin implements _ToggleTrial {
     TResult Function()? confirmPurchaseSuccess,
     TResult Function(int index)? selectPackage,
     TResult Function(bool trialEnabled)? toggleTrial,
+    TResult Function()? premiumEvent,
     required TResult orElse(),
   }) {
     if (toggleTrial != null) {
@@ -955,6 +994,7 @@ class _$_ToggleTrial with DiagnosticableTreeMixin implements _ToggleTrial {
         confirmPurchaseSuccess,
     required TResult Function(_SelectPackage value) selectPackage,
     required TResult Function(_ToggleTrial value) toggleTrial,
+    required TResult Function(_PremiumEvent value) premiumEvent,
   }) {
     return toggleTrial(this);
   }
@@ -968,6 +1008,7 @@ class _$_ToggleTrial with DiagnosticableTreeMixin implements _ToggleTrial {
     TResult? Function(_ConfirmPurchaseSuccess value)? confirmPurchaseSuccess,
     TResult? Function(_SelectPackage value)? selectPackage,
     TResult? Function(_ToggleTrial value)? toggleTrial,
+    TResult? Function(_PremiumEvent value)? premiumEvent,
   }) {
     return toggleTrial?.call(this);
   }
@@ -981,6 +1022,7 @@ class _$_ToggleTrial with DiagnosticableTreeMixin implements _ToggleTrial {
     TResult Function(_ConfirmPurchaseSuccess value)? confirmPurchaseSuccess,
     TResult Function(_SelectPackage value)? selectPackage,
     TResult Function(_ToggleTrial value)? toggleTrial,
+    TResult Function(_PremiumEvent value)? premiumEvent,
     required TResult orElse(),
   }) {
     if (toggleTrial != null) {
@@ -998,6 +1040,145 @@ abstract class _ToggleTrial implements PurchasesEvent {
   @JsonKey(ignore: true)
   _$$_ToggleTrialCopyWith<_$_ToggleTrial> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_PremiumEventCopyWith<$Res> {
+  factory _$$_PremiumEventCopyWith(
+          _$_PremiumEvent value, $Res Function(_$_PremiumEvent) then) =
+      __$$_PremiumEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_PremiumEventCopyWithImpl<$Res>
+    extends _$PurchasesEventCopyWithImpl<$Res, _$_PremiumEvent>
+    implements _$$_PremiumEventCopyWith<$Res> {
+  __$$_PremiumEventCopyWithImpl(
+      _$_PremiumEvent _value, $Res Function(_$_PremiumEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_PremiumEvent with DiagnosticableTreeMixin implements _PremiumEvent {
+  const _$_PremiumEvent();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'PurchasesEvent.premiumEvent()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'PurchasesEvent.premiumEvent'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_PremiumEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(SubscriptionPackage package) purchase,
+    required TResult Function() restore,
+    required TResult Function() confirmPurchaseSuccess,
+    required TResult Function(int index) selectPackage,
+    required TResult Function(bool trialEnabled) toggleTrial,
+    required TResult Function() premiumEvent,
+  }) {
+    return premiumEvent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(SubscriptionPackage package)? purchase,
+    TResult? Function()? restore,
+    TResult? Function()? confirmPurchaseSuccess,
+    TResult? Function(int index)? selectPackage,
+    TResult? Function(bool trialEnabled)? toggleTrial,
+    TResult? Function()? premiumEvent,
+  }) {
+    return premiumEvent?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(SubscriptionPackage package)? purchase,
+    TResult Function()? restore,
+    TResult Function()? confirmPurchaseSuccess,
+    TResult Function(int index)? selectPackage,
+    TResult Function(bool trialEnabled)? toggleTrial,
+    TResult Function()? premiumEvent,
+    required TResult orElse(),
+  }) {
+    if (premiumEvent != null) {
+      return premiumEvent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Purchase value) purchase,
+    required TResult Function(_Restore value) restore,
+    required TResult Function(_ConfirmPurchaseSuccess value)
+        confirmPurchaseSuccess,
+    required TResult Function(_SelectPackage value) selectPackage,
+    required TResult Function(_ToggleTrial value) toggleTrial,
+    required TResult Function(_PremiumEvent value) premiumEvent,
+  }) {
+    return premiumEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_Purchase value)? purchase,
+    TResult? Function(_Restore value)? restore,
+    TResult? Function(_ConfirmPurchaseSuccess value)? confirmPurchaseSuccess,
+    TResult? Function(_SelectPackage value)? selectPackage,
+    TResult? Function(_ToggleTrial value)? toggleTrial,
+    TResult? Function(_PremiumEvent value)? premiumEvent,
+  }) {
+    return premiumEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Purchase value)? purchase,
+    TResult Function(_Restore value)? restore,
+    TResult Function(_ConfirmPurchaseSuccess value)? confirmPurchaseSuccess,
+    TResult Function(_SelectPackage value)? selectPackage,
+    TResult Function(_ToggleTrial value)? toggleTrial,
+    TResult Function(_PremiumEvent value)? premiumEvent,
+    required TResult orElse(),
+  }) {
+    if (premiumEvent != null) {
+      return premiumEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PremiumEvent implements PurchasesEvent {
+  const factory _PremiumEvent() = _$_PremiumEvent;
 }
 
 /// @nodoc

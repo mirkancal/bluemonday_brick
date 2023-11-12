@@ -7,11 +7,13 @@ class PurchaseButton extends StatelessWidget {
   const PurchaseButton({
     required this.package,
     required this.trialEnabled,
+    required this.isTrialAvailable,
     super.key,
   });
 
   final SubscriptionPackage? package;
   final bool trialEnabled;
+  final bool isTrialAvailable;
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +51,11 @@ class PurchaseButton extends StatelessWidget {
             );
           },
           child: Text(
-            trialEnabled ? 'Try Free & Subscribe' : 'Continue',
+            trialEnabled
+                ? 'Try & Subscribe'
+                : isTrialAvailable
+                    ? 'Continue'
+                    : 'Unlock Premium Again',
             style: textTheme.labelLarge?.copyWith(
               color: colorScheme.onTertiary,
               fontWeight: FontWeight.bold,

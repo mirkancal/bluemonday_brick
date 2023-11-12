@@ -27,6 +27,10 @@ class PurchasesBloc extends Bloc<PurchasesEvent, PurchasesState> {
     on<_Purchase>(onPurchase);
     on<_Restore>(onRestore);
 
+    on<_PremiumEvent>((event, emit) {
+      emit(const AlreadyPremium());
+    });
+
     // Event handler for selecting a package
     on<_SelectPackage>(
       (event, emit) {
@@ -87,7 +91,7 @@ class PurchasesBloc extends Bloc<PurchasesEvent, PurchasesState> {
       final isPremium = await purchasesService.isPremium(customerInfo: info);
       // If the user is premium, emit the AlreadyPremium state
       if (isPremium) {
-        emit(const AlreadyPremium());
+        add(const _PremiumEvent());
       } else {}
     });
   }

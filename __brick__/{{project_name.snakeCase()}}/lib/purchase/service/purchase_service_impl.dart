@@ -3,11 +3,11 @@
 /// Author: [Author Name]
 /// Created Date: [Date]
 /// Description: This file implements the PurchaseService interface, providing methods for managing purchase related operations.
+library;
 
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 import 'package:rxdart/rxdart.dart';
@@ -76,6 +76,7 @@ class PurchaseServiceImpl implements PurchaseService {
     // Fetch the current offerings from the store
     final offerings = await Purchases.getOfferings();
     final offering = offerings.current!;
+    final metadata = offering.metadata;
 
     // Fetch the customer info
     final info = await Purchases.getCustomerInfo();
@@ -102,6 +103,7 @@ class PurchaseServiceImpl implements PurchaseService {
                   IntroEligibilityStatus.introEligibilityStatusEligible,
         );
         return SubscriptionPackage(
+          metadata,
           package: e,
           // If the platform is Android, check if the user has any active entitlements
           // If not, the user is eligible for an introductory offer
@@ -182,6 +184,7 @@ class PurchaseServiceImpl implements PurchaseService {
     if (offering == null) return null;
     final discountedPackage = offering.getPackage(annualDiscounted);
     final specialPackage = offering.getPackage(identifier1UsdFirstMonth);
+    final metadata = offering.metadata;
 
     final eligibilities = await Future.wait(
       [
@@ -210,12 +213,14 @@ class PurchaseServiceImpl implements PurchaseService {
               !isEligible(specialPackage.storeProduct.identifier)
           ? null
           : SubscriptionPackage(
+              metadata,
               package: specialPackage,
               isIntroductoryOfferEligible: false,
             ),
       discountedOffer: discountedPackage == null
           ? null
           : SubscriptionPackage(
+              metadata,
               package: discountedPackage,
               isIntroductoryOfferEligible: false,
             ),

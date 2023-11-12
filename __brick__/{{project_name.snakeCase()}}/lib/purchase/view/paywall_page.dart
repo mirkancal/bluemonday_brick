@@ -22,8 +22,6 @@ class PaywallPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final textTheme = theme.textTheme;
-    final colorScheme = theme.colorScheme;
     return BlocConsumer<PurchasesBloc, PurchasesState>(
       bloc: getIt<PurchasesBloc>(),
       listener: (context, state) {
@@ -48,6 +46,14 @@ class PaywallPage extends StatelessWidget {
           itemsReady: (_) => _.oneTimeOffers,
           orElse: () => null,
         );
+        final isTrialAvailable = state.maybeMap(
+          itemsReady: (_) => _.isTrialAvailable,
+          orElse: () => false,
+        );
+        final title =
+            packages.isNotEmpty && packages.first.metadata['title'] != null
+                ? packages.first.metadata['title']! as String
+                : 'Get more done\nin **less time**';
         return Scaffold(
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerFloat,
@@ -58,27 +64,29 @@ class PaywallPage extends StatelessWidget {
                     PurchaseButton(
                       package: packages[index],
                       trialEnabled: trialEnabled,
+                      isTrialAvailable: isTrialAvailable,
                     ),
                     const SizedBox(height: 16),
                     const RestoreAndConditionsWidgets(),
                   ],
                 )
               : const SizedBox(),
-          body: const SingleChildScrollView(
-            physics: AlwaysScrollableScrollPhysics(),
+          body: SingleChildScrollView(
+            physics: const AlwaysScrollableScrollPhysics(),
             child: Center(
               child: SafeArea(
                 top: false,
                 child: Column(
                   children: [
-                    _PaywallImage(),
-                    SizedBox(height: 16),
-                    _Title(),
-                    SizedBox(height: 16),
-                    _PremiumFeatures(),
-                    SizedBox(height: 16),
-                    Offers(),
-                    SizedBox(height: 160),
+                    const SizedBox(height: 32),
+                    const _PaywallImage(),
+                    const SizedBox(height: 16),
+                    _Title(title),
+                    const SizedBox(height: 16),
+                    const _PremiumFeatures(),
+                    const SizedBox(height: 16),
+                    const Offers(),
+                    const SizedBox(height: 160),
                   ],
                 ),
               ),
@@ -155,30 +163,11 @@ class Offers extends StatelessWidget {
             );
             return SizedBox(
               width: MediaQuery.of(context).size.width * 0.8,
-              child: Column(
-                children: [
-                  TrialToggle(
-                    enabled: state.isTrialAvailable && trialEnabled,
-                  ),
-                  const SizedBox(height: 16),
-                  for (var i = 0; i < packages.length; i++) ...[
-                    OfferCard(
-                      trialOn: trialEnabled,
-                      sub: packages[i],
-                      isSelected: index == i,
-                      onTap: () {
-                        // vibrationFeeback(type: FeedbackType.selection);
-                        getIt<PurchasesBloc>().add(
-                          PurchasesEvent.selectPackage(i),
-                        );
-                      },
-                      isBestDeal:
-                          packages[i].package.packageType == PackageType.annual,
-                      discount: getDiscount(packages, packages[i]),
-                    ),
-                    if (i != packages.length) const SizedBox(height: 8),
-                  ],
-                ],
+              child: OfferSection(
+                trialEnabled: trialEnabled,
+                isTrialAvailable: state.isTrialAvailable,
+                packages: packages,
+                index: index,
               ),
             );
           },
@@ -198,6 +187,90 @@ class Offers extends StatelessWidget {
         );
       },
     );
+  }
+}
+
+class OfferSection extends StatelessWidget {
+  const OfferSection({
+    super.key,
+    required this.trialEnabled,
+    required this.isTrialAvailable,
+    required this.packages,
+    required this.index,
+  });
+
+  final bool trialEnabled;
+  final bool isTrialAvailable;
+  final List<SubscriptionPackage> packages;
+  final int index;
+
+  @override
+  Widget build(BuildContext context) {
+    return packages.length >= 3
+        ? Column(
+            children: [
+              TrialToggle(
+                enabled: isTrialAvailable && trialEnabled,
+              ),
+              const SizedBox(height: 16),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const SizedBox(height: 16),
+                  for (var i = 0; i < packages.length; i++) ...[
+                    OfferCard.compact(
+                      trialOn: trialEnabled,
+                      sub: packages[i],
+                      isSelected: index == i,
+                      onTap: () {
+                        // vibrationFeeback(type: FeedbackType.selection);
+                        getIt<PurchasesBloc>().add(
+                          PurchasesEvent.selectPackage(i),
+                        );
+                      },
+                      isBestDeal:
+                          packages[i].package.packageType == PackageType.annual,
+                      discount: getDiscount(packages, packages[i]),
+                      discountAmountInCurrency: getDiscountInCurrency(
+                        packages,
+                        packages[i],
+                      ),
+                    ),
+                    if (i != packages.length) const SizedBox(height: 8),
+                  ],
+                ],
+              ),
+            ],
+          )
+        : Column(
+            children: [
+              TrialToggle(
+                enabled: isTrialAvailable && trialEnabled,
+              ),
+              const SizedBox(height: 16),
+              for (var i = 0; i < packages.length; i++) ...[
+                OfferCard.extended(
+                  trialOn: trialEnabled,
+                  sub: packages[i],
+                  isSelected: index == i,
+                  onTap: () {
+                    // vibrationFeeback(type: FeedbackType.selection);
+                    getIt<PurchasesBloc>().add(
+                      PurchasesEvent.selectPackage(i),
+                    );
+                  },
+                  isBestDeal:
+                      packages[i].package.packageType == PackageType.annual,
+                  discount: getDiscount(packages, packages[i]),
+                  discountAmountInCurrency: getDiscountInCurrency(
+                    packages,
+                    packages[i],
+                  ),
+                ),
+                if (i != packages.length) const SizedBox(height: 8),
+              ],
+            ],
+          );
   }
 }
 
@@ -300,18 +373,23 @@ class _PremiumFeatures extends StatelessWidget {
 }
 
 class _Title extends StatelessWidget {
-  const _Title();
+  const _Title(this.data);
 
+  final String data;
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
     final colorScheme = theme.colorScheme;
-    return Text(
-      'Try Premium for free',
-      style: textTheme.headlineSmall?.copyWith(
-        color: colorScheme.onBackground,
-      ),
+    return BlocBuilder<PurchasesBloc, PurchasesState>(
+      bloc: getIt<PurchasesBloc>(),
+      builder: (context, state) {
+        final isTrialAvailable = state.maybeMap(
+          itemsReady: (_) => _.isTrialAvailable,
+          orElse: () => false,
+        );
+        return RichTextFromJson(theme: theme, jsonTitle: data);
+      },
     );
   }
 }
@@ -321,6 +399,59 @@ class _PaywallImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(UI.paywall);
+    return Image.asset(
+      UI.paywall,
+      height: 200,
+    );
+  }
+}
+
+class RichTextFromJson extends StatelessWidget {
+  const RichTextFromJson(
+      {required this.theme, required this.jsonTitle, super.key});
+  final String jsonTitle;
+  final ThemeData theme;
+
+  List<TextSpan> parseJsonTitle() {
+    final spans = <TextSpan>[];
+    final splitTextByNewline = jsonTitle.split('\n');
+
+    for (var lineIndex = 0;
+        lineIndex < splitTextByNewline.length;
+        lineIndex++) {
+      final line = splitTextByNewline[lineIndex];
+      final splitText = line.split('**');
+
+      for (var i = 0; i < splitText.length; i++) {
+        final style = i.isEven
+            ? theme.textTheme.headlineMedium?.copyWith(
+                color: theme.colorScheme.onBackground,
+              )
+            : TextStyle(
+                color: theme.colorScheme.primary,
+              );
+        spans.add(TextSpan(text: splitText[i], style: style));
+      }
+
+      // Add a TextSpan for the newline, except for the last line
+      if (lineIndex < splitTextByNewline.length - 1) {
+        spans.add(const TextSpan(text: '\n'));
+      }
+    }
+
+    return spans;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Text.rich(
+      TextSpan(
+        // default style for text spans
+        style: theme.textTheme.headlineMedium?.copyWith(
+          color: theme.colorScheme.onBackground,
+        ),
+        children: parseJsonTitle(),
+      ),
+    );
   }
 }

@@ -12,4 +12,5 @@ class PurchasesEvent with _$PurchasesEvent {
   const factory PurchasesEvent.toggleTrial({
     required bool trialEnabled,
   }) = _ToggleTrial;
+  const factory PurchasesEvent.premiumEvent() = _PremiumEvent;
 }

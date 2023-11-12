@@ -8,13 +8,15 @@ import 'package:{{project_name.snakeCase()}}/purchase/service/purchase_service.d
 // - package: Contains the details of the package
 // - isIntroductoryOfferEligible: A boolean value indicating whether the package is eligible for introductory offer or not
 class SubscriptionPackage {
-  SubscriptionPackage({
+  SubscriptionPackage(
+    this.metadata, {
     required this.package,
     required this.isIntroductoryOfferEligible,
   });
 
   final Package package;
   final bool isIntroductoryOfferEligible;
+  final Map<String, Object> metadata;
 
   // Returns the identifier of the package
   String get identifier => package.identifier;

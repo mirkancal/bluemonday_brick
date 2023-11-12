@@ -4,7 +4,6 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:purchases_flutter/purchases_flutter.dart';
 
 abstract class AnalyticsService {
   Future<void> login({
